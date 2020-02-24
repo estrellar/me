@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 api = Api(app)
 
 
@@ -51,5 +53,7 @@ class Resume(Resource):
 
 
 api.add_resource(Resume, '/')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

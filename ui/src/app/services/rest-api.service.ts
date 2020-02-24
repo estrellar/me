@@ -9,12 +9,13 @@ import { Me } from '../models/me';
   providedIn: 'root'
 })
 export class RestApiService {
-  apiUrl = 'http://api/'
+  apiUrl = "http://localhost:5000"
   constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     })
   }
 
